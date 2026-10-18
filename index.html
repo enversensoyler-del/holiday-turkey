@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Holiday in Turkey: Istanbul, Fethiye, Cappadocia and Southeast Türkiye tours with private transport, meals and hotel included.">
+<meta name="theme-color" content="#1597d6">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<title>Holiday in Turkey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Manrope:wght@400;500;600;700&family=El+Messiri:wght@600;700&family=Cairo:wght@400;600&display=swap">
+<style>
+/* Layout: İznik çini mavisi bir başlık bandı, ardından tek sütun akan bölümler; turlar şehir kartları gridinde, iletişim iki kolon. */
+:root{
+  --bg:#e8f6ff; --bg2:#fffbf3; --surface:#ffffff; --ink:#123a57; --muted:#56748a;
+  --cobalt:#1597d6; --turq:#0b9fd8; --coral:#ff8a3d; --gold:#ffd166; --line:#d3ecfa;
+  --head:rgba(255,255,255,.88); --head-fg:#0e5c8f;
+  --hero-fg:#ffffff;
+  --f-display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --f-body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-ar:"Cairo", "Segoe UI", Tahoma, sans-serif;
+  --f-ar-display:"El Messiri", "Cairo", Tahoma, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0a1c22; --bg2:#1a1a24; --surface:#112a31; --ink:#e7f3f2; --muted:#9dbcbd;
+  --cobalt:#0d5566; --turq:#3fd0c6; --coral:#ff8f57; --gold:#ffc766; --line:#1f3d45; --head:rgba(10,28,34,.88); --head-fg:#e7f3f2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0a1c22; --bg2:#1a1a24; --surface:#112a31; --ink:#e7f3f2; --muted:#9dbcbd;
+  --cobalt:#0d5566; --turq:#3fd0c6; --coral:#ff8f57; --gold:#ffc766; --line:#1f3d45; --head:rgba(10,28,34,.88); --head-fg:#e7f3f2; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%) fixed,var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6}
+html[dir="rtl"] body{font-family:var(--f-ar)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;text-wrap:balance;margin:0;line-height:1.08;letter-spacing:-.01em}
+h1 em,h2 em{font-style:italic}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] .brand{font-family:var(--f-ar-display);font-weight:700;font-style:normal;letter-spacing:0;line-height:1.3}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--head)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--head);backdrop-filter:blur(10px);color:var(--head-fg);box-shadow:0 2px 14px rgba(21,151,214,.12)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-style:italic;font-size:1.55rem;text-decoration:none}
+.brand .mark{flex:none;width:48px;height:48px;border-radius:50%;overflow:hidden;background:#fff;display:grid;place-items:center;padding:3px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.brand .mark img{max-width:86%;max-height:86%;display:block}
+.foot-logo{width:140px;height:140px;max-width:100%;border-radius:50%;background:#fff;padding:14px;object-fit:contain;display:block;box-shadow:0 4px 16px rgba(21,151,214,.2)}
+.wa-float{position:fixed;z-index:20;bottom:calc(18px + env(safe-area-inset-bottom,0px));right:calc(18px + env(safe-area-inset-right,0px));width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s}
+.wa-float:hover{background:#1ebe5a;transform:scale(1.06)}
+.wa-float svg{width:32px;height:32px}
+.wa-icon{width:50px;height:50px;padding:0;justify-content:center;border-radius:50%}
+.wa-icon svg{width:36px;height:36px}
+.btn.wa{background:#25d366;color:#fff}
+.btn.wa:hover{background:#1ebe5a}
+nav.menu{display:flex;gap:18px;font-size:.92rem}
+nav.menu a{text-decoration:none;opacity:.9}
+nav.menu a:hover{opacity:1;text-decoration:underline}
+.langs{display:flex;gap:4px}
+.langs button{font:inherit;font-size:.8rem;letter-spacing:.06em;background:transparent;color:var(--head-fg);border:1px solid color-mix(in srgb,var(--head-fg) 35%,transparent);border-radius:4px;padding:4px 9px;cursor:pointer}
+.langs button[aria-pressed="true"]{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+@media (max-width:760px){nav.menu{display:none}}
+
+/* hero */
+.hero{background-color:var(--cobalt);color:var(--hero-fg);position:relative;overflow:hidden;isolation:isolate}
+.hero .slides{position:absolute;inset:0;z-index:-2}
+.hero .slides i{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:fade 28s infinite}
+.hero .slides i:nth-child(1){background-image:url("img/bg-istanbul.jpg");opacity:1}
+.hero .slides i:nth-child(2){background-image:url("img/bg-kapadokya.jpg");animation-delay:7s}
+.hero .slides i:nth-child(3){background-image:url("img/bg-oludeniz.jpg");animation-delay:14s}
+.hero .slides i:nth-child(4){background-image:url("img/bg-gaziantep.jpg");animation-delay:21s;background-position:center 35%}
+.hero .slides i:nth-child(1){animation-name:fade1}
+@keyframes fade{0%{opacity:0;transform:scale(1.08)}5%{opacity:1}25%{opacity:1}31%{opacity:0;transform:scale(1)}100%{opacity:0}}
+@keyframes fade1{0%{opacity:1;transform:scale(1.08)}25%{opacity:1}31%{opacity:0;transform:scale(1)}95%{opacity:0}100%{opacity:1}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(0,80,140,.5) 0%,rgba(0,120,190,.22) 55%,rgba(0,140,210,0) 100%)}
+.hero .dots{position:absolute;bottom:18px;inset-inline-end:max(16px,env(safe-area-inset-right,0px));display:flex;gap:6px}
+.hero .dots span{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:20px;background:rgba(0,0,0,.3);color:#fff;opacity:.85}
+@media (prefers-reduced-motion:reduce){.hero .slides i{animation:none}.hero .slides i:not(:first-child){opacity:0}}
+.hero .wrap{padding-block:120px 110px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+.hero h1{font-size:clamp(2.6rem,6.2vw,4.6rem);max-width:15ch;font-style:italic;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero p.lead{text-shadow:0 1px 10px rgba(0,0,0,.35);font-size:1.12rem;max-width:46ch;opacity:.92;margin:18px 0 26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:500;border-radius:6px;padding:12px 20px;text-decoration:none;cursor:pointer;border:2px solid transparent}
+.btn.primary{background:var(--coral);color:#fff}
+.btn.ghost{border-color:rgba(255,255,255,.6);color:#fff;background:transparent}
+.btn.primary:hover{filter:brightness(1.08)}
+.facts{list-style:none;margin:0;padding:22px;border-radius:10px;background:rgba(0,110,175,.32);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);display:grid;gap:14px;font-size:.95rem}
+.facts li{display:flex;gap:12px;align-items:baseline}
+.facts b{font-family:var(--f-display);font-weight:700;font-size:2rem;min-width:3.2ch;color:var(--gold);font-variant-numeric:tabular-nums}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;padding-block:48px}}
+
+/* sections */
+section{padding-block:72px}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--turq);font-weight:600;margin:0 0 10px}
+html[dir="rtl"] .eyebrow{letter-spacing:0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:32px}
+.sec-head h2{font-size:clamp(2rem,4vw,3rem)}
+.sec-head p{max-width:48ch;color:var(--muted);margin:0}
+
+/* tours */
+.tours{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.tour{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 30px -18px rgba(21,151,214,.45);transition:transform .25s,box-shadow .25s}
+.tour:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(21,151,214,.6)}
+.tour .art{aspect-ratio:16/9;max-width:100%;position:relative;display:flex;align-items:flex-end;padding:14px;color:#fff}
+.tour .art span{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,0,0,.28);padding:3px 8px;border-radius:3px}
+.tour .art{background-color:var(--line);background-size:cover;background-position:center;aspect-ratio:4/3}
+.a1{background-image:url("img/istanbul.jpg")}
+.a2{background-image:url("img/fethiye.jpg")}
+.a3{background-image:url("img/kapadokya.jpg")}
+.a4{background-image:url("img/gap.jpg");background-position:center 70%}
+.tour .art span{backdrop-filter:blur(2px)}
+.tour .body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.tour h3{font-size:1.6rem}
+.tour p{margin:0;color:var(--muted);font-size:.95rem}
+.tour .meta{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted)}
+.tour .meta strong{color:var(--ink);font-weight:500}
+
+.inc-h{margin:4px 0 0!important;font-size:.75rem!important;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--turq)!important}
+html[dir="rtl"] .inc-h{letter-spacing:0}
+.inc{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.inc li{display:inline-flex;align-items:center;gap:5px;font-size:.82rem;font-weight:500;padding:4px 10px 4px 8px;border-radius:20px;background:color-mix(in srgb,var(--turq) 13%,transparent);color:var(--ink)}
+.inc li::before{content:"✓";color:var(--turq);font-weight:700}
+
+/* packages band */
+.band{background:color-mix(in srgb,var(--surface) 75%,transparent);border-block:1px solid var(--line)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.svc{display:grid;gap:22px}
+.svc div{display:grid;grid-template-columns:40px 1fr;gap:14px}
+.svc .ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--turq) 15%,transparent);color:var(--turq)}
+.svc h3{font-size:1.15rem;margin-bottom:4px}
+.svc p{margin:0;color:var(--muted);font-size:.95rem}
+@media (max-width:820px){.split{grid-template-columns:1fr;gap:36px}}
+
+/* health */
+.health{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.hcard{padding:22px;border-radius:8px;border:1px solid var(--line);background:var(--surface)}
+.hcard h3{font-size:1.2rem;margin-bottom:8px}
+.hcard p{margin:0;color:var(--muted);font-size:.95rem}
+.hcard ul{margin:12px 0 0;padding-inline-start:18px;font-size:.92rem}
+.note{margin-top:20px;font-size:.85rem;color:var(--muted);max-width:75ch}
+@media (max-width:820px){.health{grid-template-columns:1fr}}
+
+/* steps */
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.steps li{counter-increment:s;padding-top:16px;border-top:3px solid var(--turq)}
+.steps li::before{content:counter(s);font-family:var(--f-display);font-weight:700;font-style:italic;font-size:2.4rem;color:var(--coral);display:block;line-height:1}
+.steps h3{font-size:1.1rem;margin:8px 0 4px}
+.steps p{margin:0;color:var(--muted);font-size:.93rem}
+@media (max-width:820px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.steps{grid-template-columns:1fr}}
+
+/* contact */
+.contact{color:#fff;background:linear-gradient(120deg,rgba(10,130,200,.85),rgba(70,190,235,.62)),url("img/bg-oludeniz.jpg") center/cover}
+.contact .split{align-items:start}
+.contact .eyebrow{color:var(--gold)}
+.contact p{opacity:.9}
+.channels{display:grid;gap:10px;margin-top:20px}
+.channels div{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 14px;border-radius:6px;background:rgba(255,255,255,.08)}
+.channels span{opacity:.75;font-size:.9rem}
+.channels b{font-weight:500;user-select:all;direction:ltr;unicode-bidi:embed}
+form{background:var(--surface);color:var(--ink);border-radius:8px;padding:24px;display:grid;gap:14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:6px;font-size:.88rem;font-weight:500;min-width:0}
+input,select,textarea{font:inherit;font-weight:400;padding:10px 12px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:90px;resize:vertical}
+.ok{padding:12px;border-radius:6px;background:color-mix(in srgb,var(--turq) 15%,transparent);color:var(--ink);font-size:.92rem}
+@media (max-width:520px){.row{grid-template-columns:1fr}}
+
+footer{padding-block:28px;font-size:.85rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Holiday in Turkey">
+      <span class="mark"><img src="img/logo-icon.jpg" alt=""></span>
+      Holiday in Turkey
+    </a>
+    <nav class="menu">
+      <a href="#tours" data-i="nav_tours"></a>
+      <a href="#packages" data-i="nav_pack"></a>
+            <a href="#contact" data-i="nav_contact"></a>
+    </nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-l="en">EN</button>
+      <button type="button" data-l="ar">AR</button>
+      <button type="button" data-l="ru">RU</button>
+      <button type="button" data-l="tr">TR</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="slides" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--gold)" data-i="hero_eb"></p>
+      <h1 data-i="hero_h"></h1>
+      <p class="lead" data-i="hero_p"></p>
+      <div class="cta">
+        <a class="btn primary" href="#contact" data-i="hero_b1"></a>
+        <a class="btn ghost" href="#tours" data-i="hero_b2"></a>
+      </div>
+    </div>
+    <ul class="facts">
+      <li><b>24/7</b><span data-i="f2"></span></li>
+      <li><b>1</b><span data-i="f3"></span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="tours">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow" data-i="t_eb"></p><h2 data-i="t_h"></h2></div>
+      <p data-i="t_p"></p>
+    </div>
+    <div class="tours">
+      <article class="tour"><div class="art a1"><span data-i="c1_tag"></span></div><div class="body"><h3 data-i="c1_h"></h3><p data-i="c1_p"></p><p class="inc-h" data-i="inc_h"></p><ul class="inc"><li data-i="inc1"></li><li data-i="inc2"></li><li data-i="inc3"></li></ul><div class="meta"><span data-i="c1_d"></span><strong data-i="ask"></strong></div></div></article>
+      <article class="tour"><div class="art a2"><span data-i="c2_tag"></span></div><div class="body"><h3 data-i="c2_h"></h3><p data-i="c2_p"></p><p class="inc-h" data-i="inc_h"></p><ul class="inc"><li data-i="inc1"></li><li data-i="inc2"></li><li data-i="inc3"></li></ul><div class="meta"><span data-i="c2_d"></span><strong data-i="ask"></strong></div></div></article>
+      <article class="tour"><div class="art a3"><span data-i="c3_tag"></span></div><div class="body"><h3 data-i="c3_h"></h3><p data-i="c3_p"></p><p class="inc-h" data-i="inc_h"></p><ul class="inc"><li data-i="inc1"></li><li data-i="inc2"></li><li data-i="inc3"></li></ul><div class="meta"><span data-i="c3_d"></span><strong data-i="ask"></strong></div></div></article>
+      <article class="tour"><div class="art a4"><span data-i="c4_tag"></span></div><div class="body"><h3 data-i="c4_h"></h3><p data-i="c4_p"></p><p class="inc-h" data-i="inc_h"></p><ul class="inc"><li data-i="inc1"></li><li data-i="inc2"></li><li data-i="inc3"></li></ul><div class="meta"><span data-i="c4_d"></span><strong data-i="ask"></strong></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="packages" class="band">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-i="p_eb"></p>
+      <h2 style="font-size:clamp(2rem,4vw,3rem)" data-i="p_h"></h2>
+      <p style="color:var(--muted);max-width:44ch" data-i="p_p"></p>
+    </div>
+    <div class="svc">
+      <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></span><div><h3 data-i="s1_h"></h3><p data-i="s1_p"></p></div></div>
+      <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14l-1.5-6h-11zM7 17v2M17 17v2M6.5 11 8 6h8l1.5 5"/></svg></span><div><h3 data-i="s2_h"></h3><p data-i="s2_p"></p></div></div>
+      <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0-6 6c0 5 6 12 6 12s6-7 6-12a6 6 0 0 0-6-6z"/><circle cx="12" cy="9" r="2"/></svg></span><div><h3 data-i="s3_h"></h3><p data-i="s3_p"></p></div></div>
+      <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/></svg></span><div><h3 data-i="s4_h"></h3><p data-i="s4_p"></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="how">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="eyebrow" data-i="w_eb"></p><h2 data-i="w_h"></h2></div></div>
+    <ol class="steps">
+      <li><h3 data-i="w1_h"></h3><p data-i="w1_p"></p></li>
+      <li><h3 data-i="w2_h"></h3><p data-i="w2_p"></p></li>
+      <li><h3 data-i="w3_h"></h3><p data-i="w3_p"></p></li>
+      <li><h3 data-i="w4_h"></h3><p data-i="w4_p"></p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-i="k_eb"></p>
+      <h2 style="font-size:clamp(2rem,4vw,3rem)" data-i="k_h"></h2>
+      <p data-i="k_p"></p>
+      <div class="channels">
+        <div><span>WhatsApp</span><b><a class="wa-link wa-num" href="#" target="_blank" rel="noopener">+90 551 576 00 27</a></b></div>
+        <div><span>Instagram</span><b><a href="https://www.instagram.com/holiday_turkey_ig/" target="_blank" rel="noopener">@holiday_turkey_ig</a></b></div>
+      </div>
+    </div>
+    <form id="req" novalidate>
+      <div class="row">
+        <label for="f_name"><span data-i="fm_name"></span><input id="f_name" required autocomplete="name"></label>
+        <label for="f_country"><span data-i="fm_country"></span><input id="f_country" autocomplete="country-name"></label>
+      </div>
+      <div class="row">
+        <label for="f_phone"><span data-i="fm_phone"></span><input id="f_phone" type="tel" required autocomplete="tel" dir="ltr"></label>
+        <label for="f_people"><span data-i="fm_people"></span><input id="f_people" type="number" min="1" value="2"></label>
+      </div>
+      <div class="row">
+        <label for="f_type"><span data-i="fm_type"></span>
+          <select id="f_type"><option data-i="o1"></option><option data-i="o2"></option></select></label>
+        <label for="f_date"><span data-i="fm_date"></span><input id="f_date" type="month"></label>
+      </div>
+      <label for="f_msg"><span data-i="fm_msg"></span><textarea id="f_msg"></textarea></label>
+      <button class="btn wa" type="submit"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.6-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.4-.9 2.2.1 1 .5 2 1.1 2.8 1.2 1.7 2.6 3 4.5 3.8 1.7.7 2.1.6 2.8.5.6-.1 1.5-.6 1.7-1.2.2-.6.2-1 .1-1.2l-.6-.3z"/></svg><span data-i="fm_send"></span></button>
+      <div class="ok" id="ok" hidden></div>
+      <a class="btn wa" id="waSend" hidden href="#" target="_blank" rel="noopener"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.6-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.4-.9 2.2.1 1 .5 2 1.1 2.8 1.2 1.7 2.6 3 4.5 3.8 1.7.7 2.1.6 2.8.5.6-.1 1.5-.6 1.7-1.2.2-.6.2-1 .1-1.2l-.6-.3z"/></svg><span data-i="fm_wa"></span></a>
+    </form>
+  </div>
+</section>
+</main>
+
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.6-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.4-.9 2.2.1 1 .5 2 1.1 2.8 1.2 1.7 2.6 3 4.5 3.8 1.7.7 2.1.6 2.8.5.6-.1 1.5-.6 1.7-1.2.2-.6.2-1 .1-1.2l-.6-.3z"/></svg></a>
+
+<footer>
+  <div class="wrap" style="align-items:center">
+    <span>© 2026 Holiday in Turkey</span>
+    <span data-i="foot"></span>
+  </div>
+</footer>
+
+<script>
+const T={
+en:{inc_h:"Included in every tour",inc1:"Private transport",inc2:"Meals",inc3:"Hotel",wa_chat:"Chat on WhatsApp",fm_wa:"Send via WhatsApp",fm_ok:"Your message is ready. If WhatsApp did not open, tap the button below.",wa_hello:"Hello Holiday in Turkey, I would like information about a tour.",nav_tours:"Tours",nav_pack:"Packages",nav_health:"Health trips",nav_contact:"Contact",
+hero_eb:"Private tours across Türkiye",hero_h:"See Türkiye with a local team that plans every day",
+hero_p:"City and culture tours, sea and nature trips, hotels and airport transfers, with a personal coordinator who speaks your language.",
+hero_b1:"Get a free quote",hero_b2:"Browse tours",
+f1:"languages: English, Arabic, Russian, Turkish",f2:"WhatsApp support during your trip",f3:"coordinator from first message to flight home",
+t_eb:"Culture & city tours",t_h:"Popular routes",t_p:"Every tour can be private or small-group, with hotel pickup. Tell us your dates and we send a day-by-day plan.",
+c1_tag:"Istanbul",c1_h:"Istanbul Old City & Bosphorus",c1_p:"Hagia Sophia, Topkapı Palace, Süleymaniye Mosque, the Grand Bazaar and a Bosphorus cruise between Europe and Asia.",c1_d:"2–4 days",
+c2_tag:"Fethiye · Ölüdeniz",c2_h:"Fethiye & Ölüdeniz",c2_p:"Tandem paragliding over the Blue Lagoon from Babadağ, boat trip to the 12 islands and Butterfly Valley.",c2_d:"3–5 days",
+c3_tag:"Cappadocia",c3_h:"Cappadocia Balloons & Valleys",c3_p:"Sunrise balloon flight, cave hotels, Uçhisar Castle, underground cities and walks among the fairy chimneys.",c3_d:"2–3 days",
+c4_tag:"GAP · Southeast",c4_h:"Mount Nemrut & Southeast Türkiye",c4_p:"Sunrise among the giant stone heads of Nemrut, Göbeklitepe and Şanlıurfa, Zeugma mosaics and Gaziantep cuisine.",c4_d:"3–4 days",
+ask:"Price on request",
+p_eb:"Packages & transfers",p_h:"One booking for the whole trip",p_p:"We combine flights-in to flights-out: hotel, transfers, tours and support, priced as one package.",
+s1_h:"Hotels",s1_p:"Checked hotels from boutique to 5-star, booked at partner rates.",
+s2_h:"Airport & city transfers",s2_p:"Private VIP vans meet you at IST, SAW, AYT and other airports.",
+s3_h:"Day trips",s3_p:"Add single-day excursions to any package.",
+s4_h:"Support in your language",s4_p:"One WhatsApp contact before, during and after the trip.",
+h_eb:"Health tourism",h_h:"Treatment trips, organised end to end",h_p:"We work with licensed clinics and hospitals. You get the clinic, hotel and transfers in one plan.",
+h1_h:"Hair transplant",h1_p:"Clinic visit, hotel stay and all transfers during the treatment days.",
+h2_h:"Dental care",h2_p:"Implants, veneers and crowns, with the hotel and visit schedule arranged for you.",
+h3_h:"Aesthetic procedures",h3_p:"Consultation and procedure at partner hospitals, with recovery stay and transfers.",
+h_note:"Medical decisions and treatment plans are made by the licensed doctor. Holiday in Turkey arranges travel, accommodation and coordination.",
+w_eb:"How it works",w_h:"From first message to flight home",
+w1_h:"Send a request",w1_p:"Fill the form or write on WhatsApp with your dates and interests.",
+w2_h:"Receive your plan",w2_p:"We reply with a day-by-day plan and a clear package price.",
+w3_h:"Confirm",w3_p:"Approve the plan and pay the deposit securely.",
+w4_h:"Travel",w4_p:"We meet you at the airport. Your coordinator stays with you on WhatsApp.",
+k_eb:"Contact",k_h:"Tell us about your trip",k_p:"We usually reply within a few hours.",
+fm_name:"Full name",fm_country:"Country",fm_phone:"Phone / WhatsApp",fm_people:"Travellers",fm_type:"Interested in",fm_date:"Travel month",fm_msg:"Message",fm_send:"Send request",
+o1:"Culture & city tours",o2:"Package holiday / transfer",o3:"Health trip",
+fm_err:"Please enter your name and phone number.",
+lic:"TÜRSAB licence no: XXXXX",foot:"Gaziantep · Türkiye"},
+
+
+ar:{inc_h:"مشمول في كل جولة",inc1:"نقل خاص",inc2:"وجبات",inc3:"فندق",wa_chat:"تواصل عبر واتساب",fm_wa:"أرسل عبر واتساب",fm_ok:"رسالتك جاهزة. إذا لم يُفتح واتساب، اضغط على الزر أدناه.",wa_hello:"مرحباً Holiday in Turkey، أرغب في معلومات عن جولة.",nav_tours:"الجولات",nav_pack:"الباقات",nav_health:"السياحة العلاجية",nav_contact:"تواصل معنا",
+hero_eb:"جولات خاصة في أنحاء تركيا",hero_h:"اكتشف تركيا مع فريق محلي يخطط لكل يوم من رحلتك",
+hero_p:"جولات ثقافية وسياحية، رحلات بحرية وطبيعية، فنادق وتنقلات من المطار، مع منسّق شخصي يتحدث لغتك.",
+hero_b1:"احصل على عرض مجاني",hero_b2:"تصفّح الجولات",
+f1:"لغات: العربية، الإنجليزية، الروسية، التركية",f2:"دعم عبر واتساب طوال الرحلة",f3:"منسّق واحد من أول رسالة حتى العودة",
+t_eb:"جولات ثقافية وسياحية",t_h:"المسارات الأكثر طلباً",t_p:"كل الجولات متاحة بشكل خاص أو لمجموعات صغيرة مع الاستقبال من الفندق. أرسل لنا تواريخك ونرسل لك خطة يومية.",
+c1_tag:"إسطنبول",c1_h:"إسطنبول القديمة والبوسفور",c1_p:"آيا صوفيا، قصر توبكابي، جامع السليمانية، البازار الكبير ورحلة بحرية في البوسفور بين أوروبا وآسيا.",c1_d:"2–4 أيام",
+c2_tag:"فتحية · أولودينيز",c2_h:"فتحية وأولودينيز",c2_p:"طيران مظلي مزدوج من جبل باباداغ فوق البحيرة الزرقاء، رحلة بالقارب إلى الجزر الاثنتي عشرة ووادي الفراشات.",c2_d:"3–5 أيام",
+c3_tag:"كابادوكيا",c3_h:"كابادوكيا: المناطيد والوديان",c3_p:"رحلة منطاد عند الشروق، فنادق الكهوف، قلعة أوتشهيسار، المدن تحت الأرض والمداخن الخرافية.",c3_d:"2–3 أيام",
+c4_tag:"جنوب شرق تركيا",c4_h:"جبل نمرود وجنوب شرق تركيا",c4_p:"الشروق بين الرؤوس الحجرية العملاقة في نمرود، غوبكلي تبه وشانلي أورفا، فسيفساء زيوغما ومطبخ غازي عنتاب.",c4_d:"3–4 أيام",
+ask:"السعر عند الطلب",
+p_eb:"الباقات والتنقلات",p_h:"حجز واحد لرحلتك كاملة",p_p:"نجمع لك كل شيء من الوصول حتى المغادرة: فندق، تنقلات، جولات ودعم بسعر باقة واحدة.",
+s1_h:"الفنادق",s1_p:"فنادق مختارة من البوتيك حتى خمس نجوم بأسعار الشركاء.",
+s2_h:"التنقل من المطار وداخل المدينة",s2_p:"سيارات VIP خاصة لاستقبالك في مطارات IST وSAW وAYT وغيرها.",
+s3_h:"رحلات اليوم الواحد",s3_p:"يمكن إضافة رحلات ليوم واحد إلى أي باقة.",
+s4_h:"دعم بلغتك",s4_p:"جهة اتصال واحدة عبر واتساب قبل الرحلة وأثناءها وبعدها.",
+h_eb:"السياحة العلاجية",h_h:"رحلات علاجية منظّمة بالكامل",h_p:"نتعامل مع عيادات ومستشفيات مرخّصة. العيادة والفندق والتنقلات في خطة واحدة.",
+h1_h:"زراعة الشعر",h1_p:"زيارة العيادة، الإقامة في الفندق وجميع التنقلات خلال أيام العلاج.",
+h2_h:"علاج الأسنان",h2_p:"زراعة، قشور وتيجان، مع ترتيب الفندق ومواعيد الزيارة.",
+h3_h:"الإجراءات التجميلية",h3_p:"استشارة وإجراء في مستشفيات شريكة، مع إقامة للتعافي وتنقلات.",
+h_note:"القرارات الطبية وخطة العلاج يحددها الطبيب المرخّص. تتولى Holiday in Turkey السفر والإقامة والتنسيق.",
+w_eb:"كيف نعمل",w_h:"من أول رسالة حتى رحلة العودة",
+w1_h:"أرسل طلبك",w1_p:"املأ النموذج أو راسلنا على واتساب بتواريخك واهتماماتك.",
+w2_h:"استلم خطتك",w2_p:"نرد عليك بخطة يومية وسعر واضح للباقة.",
+w3_h:"أكّد الحجز",w3_p:"وافق على الخطة وادفع العربون بأمان.",
+w4_h:"سافر",w4_p:"نستقبلك في المطار، ومنسّقك معك على واتساب.",
+k_eb:"تواصل معنا",k_h:"أخبرنا عن رحلتك",k_p:"نرد عادة خلال بضع ساعات.",
+fm_name:"الاسم الكامل",fm_country:"البلد",fm_phone:"الهاتف / واتساب",fm_people:"عدد المسافرين",fm_type:"مهتم بـ",fm_date:"شهر السفر",fm_msg:"رسالتك",fm_send:"إرسال الطلب",
+o1:"جولات ثقافية وسياحية",o2:"باقة سياحية / تنقلات",o3:"رحلة علاجية",
+fm_err:"يرجى كتابة الاسم ورقم الهاتف.",
+lic:"رقم ترخيص TÜRSAB: XXXXX",foot:"غازي عنتاب · تركيا"},
+
+ru:{inc_h:"Включено в каждый тур",inc1:"Индивидуальный трансфер",inc2:"Питание",inc3:"Отель",wa_chat:"Написать в WhatsApp",fm_wa:"Отправить в WhatsApp",fm_ok:"Сообщение готово. Если WhatsApp не открылся, нажмите кнопку ниже.",wa_hello:"Здравствуйте, Holiday in Turkey! Хочу узнать о туре.",nav_tours:"Туры",nav_pack:"Пакеты",nav_health:"Лечение",nav_contact:"Контакты",
+hero_eb:"Индивидуальные туры по Турции",hero_h:"Откройте Турцию с местной командой, которая продумает каждый день",
+hero_p:"Экскурсии по городам, морские и природные туры, отели и трансферы из аэропорта, с личным координатором, говорящим на вашем языке.",
+hero_b1:"Получить расчёт бесплатно",hero_b2:"Смотреть туры",
+f1:"языка: русский, английский, арабский, турецкий",f2:"поддержка в WhatsApp во время поездки",f3:"координатор от первого сообщения до вылета домой",
+t_eb:"Культурные и городские туры",t_h:"Популярные маршруты",t_p:"Любой тур можно сделать индивидуальным или в малой группе, с забором из отеля. Напишите даты, и мы пришлём план по дням.",
+c1_tag:"Стамбул",c1_h:"Старый Стамбул и Босфор",c1_p:"Айя-София, дворец Топкапы, мечеть Сулеймание, Гранд-базар и прогулка по Босфору между Европой и Азией.",c1_d:"2–4 дня",
+c2_tag:"Фетхие · Олюдениз",c2_h:"Фетхие и Олюдениз",c2_p:"Тандемный параплан с горы Бабадаг над Голубой лагуной, морская прогулка к 12 островам и Долина бабочек.",c2_d:"3–5 дней",
+c3_tag:"Каппадокия",c3_h:"Каппадокия: шары и долины",c3_p:"Полёт на воздушном шаре на рассвете, пещерные отели, крепость Учхисар, подземные города и прогулки среди скал.",c3_d:"2–3 дня",
+c4_tag:"Юго-Восток",c4_h:"Гора Немрут и Юго-Восток Турции",c4_p:"Рассвет среди гигантских каменных голов Немрута, Гёбекли-Тепе и Шанлыурфа, мозаики Зевгмы и кухня Газиантепа.",c4_d:"3–4 дня",
+ask:"Цена по запросу",
+p_eb:"Пакеты и трансферы",p_h:"Вся поездка в одном бронировании",p_p:"Собираем всё от прилёта до вылета: отель, трансферы, экскурсии и поддержку по цене одного пакета.",
+s1_h:"Отели",s1_p:"Проверенные отели от бутиковых до 5 звёзд по партнёрским ценам.",
+s2_h:"Трансферы из аэропорта и по городу",s2_p:"Встреча на VIP-минивэне в аэропортах IST, SAW, AYT и других.",
+s3_h:"Однодневные экскурсии",s3_p:"Добавьте экскурсии на день к любому пакету.",
+s4_h:"Поддержка на вашем языке",s4_p:"Один контакт в WhatsApp до, во время и после поездки.",
+h_eb:"Медицинский туризм",h_h:"Лечебные поездки под ключ",h_p:"Работаем с лицензированными клиниками и больницами. Клиника, отель и трансферы в одном плане.",
+h1_h:"Пересадка волос",h1_p:"Визит в клинику, проживание в отеле и все трансферы в дни лечения.",
+h2_h:"Стоматология",h2_p:"Импланты, виниры и коронки; отель и график визитов организуем мы.",
+h3_h:"Эстетические процедуры",h3_p:"Консультация и процедура в партнёрских больницах, проживание на время восстановления и трансферы.",
+h_note:"Медицинские решения и план лечения принимает лицензированный врач. Holiday in Turkey организует поездку, проживание и координацию.",
+w_eb:"Как это работает",w_h:"От первого сообщения до вылета домой",
+w1_h:"Отправьте заявку",w1_p:"Заполните форму или напишите в WhatsApp даты и пожелания.",
+w2_h:"Получите план",w2_p:"Мы пришлём план по дням и понятную цену пакета.",
+w3_h:"Подтвердите",w3_p:"Утвердите план и безопасно внесите предоплату.",
+w4_h:"Путешествуйте",w4_p:"Встретим вас в аэропорту. Координатор на связи в WhatsApp.",
+k_eb:"Контакты",k_h:"Расскажите о вашей поездке",k_p:"Обычно отвечаем в течение нескольких часов.",
+fm_name:"Имя и фамилия",fm_country:"Страна",fm_phone:"Телефон / WhatsApp",fm_people:"Путешественников",fm_type:"Интересует",fm_date:"Месяц поездки",fm_msg:"Сообщение",fm_send:"Отправить заявку",
+o1:"Культурные и городские туры",o2:"Пакетный тур / трансфер",o3:"Лечебная поездка",
+fm_err:"Пожалуйста, укажите имя и номер телефона.",
+lic:"Лицензия TÜRSAB №: XXXXX",foot:"Газиантеп · Турция"},
+tr:{inc_h:"Tüm turlarda dahil",inc1:"Özel ulaşım",inc2:"Yemek",inc3:"Otel",wa_chat:"WhatsApp'tan yazın",fm_wa:"WhatsApp ile gönder",fm_ok:"Mesajınız hazır. WhatsApp açılmadıysa aşağıdaki düğmeye dokunun.",wa_hello:"Merhaba Holiday in Turkey, bir tur hakkında bilgi almak istiyorum.",nav_tours:"Turlar",nav_pack:"Paketler",nav_health:"Sağlık turizmi",nav_contact:"İletişim",
+hero_eb:"Türkiye'nin dört bir yanında özel turlar",hero_h:"Türkiye'yi her gününüzü planlayan yerel bir ekiple keşfedin",
+hero_p:"Şehir ve kültür turları, deniz ve doğa gezileri, otel ve havalimanı transferleri; sizin dilinizi konuşan kişisel koordinatörle.",
+hero_b1:"Ücretsiz teklif alın",hero_b2:"Turlara göz atın",
+f1:"dil: İngilizce, Arapça, Rusça, Türkçe",f2:"seyahat boyunca WhatsApp desteği",f3:"ilk mesajdan dönüş uçuşuna kadar tek koordinatör",
+t_eb:"Kültür ve şehir turları",t_h:"Popüler rotalar",t_p:"Tüm turlar özel ya da küçük grup olarak, otelden alım dahil yapılabilir. Tarihlerinizi yazın, gün gün planı gönderelim.",
+c1_tag:"İstanbul",c1_h:"İstanbul Tarihi Yarımada ve Boğaz",c1_p:"Ayasofya, Topkapı Sarayı, Süleymaniye Camii, Kapalıçarşı ve Avrupa ile Asya arasında Boğaz turu.",c1_d:"2–4 gün",
+c2_tag:"Fethiye · Ölüdeniz",c2_h:"Fethiye ve Ölüdeniz",c2_p:"Babadağ'dan Ölüdeniz üzerinde tandem yamaç paraşütü, 12 Adalar tekne turu ve Kelebekler Vadisi.",c2_d:"3–5 gün",
+c3_tag:"Kapadokya",c3_h:"Kapadokya Balon ve Vadiler",c3_p:"Gün doğumunda balon uçuşu, mağara oteller, Uçhisar Kalesi, yeraltı şehirleri ve peribacaları arasında yürüyüş.",c3_d:"2–3 gün",
+c4_tag:"GAP · Güneydoğu",c4_h:"Nemrut Dağı ve Güneydoğu",c4_p:"Nemrut'ta dev taş heykeller arasında gün doğumu, Göbeklitepe ve Şanlıurfa, Zeugma mozaikleri ve Gaziantep mutfağı.",c4_d:"3–4 gün",
+ask:"Fiyat için sorun",
+p_eb:"Paketler ve transferler",p_h:"Tüm seyahat tek rezervasyonda",p_p:"Gelişten dönüşe her şeyi birleştiriyoruz: otel, transfer, turlar ve destek tek paket fiyatıyla.",
+s1_h:"Oteller",s1_p:"Butikten 5 yıldıza kadar kontrol edilmiş oteller, anlaşmalı fiyatlarla.",
+s2_h:"Havalimanı ve şehir transferi",s2_p:"IST, SAW, AYT ve diğer havalimanlarında özel VIP araçla karşılama.",
+s3_h:"Günübirlik turlar",s3_p:"Her pakete tek günlük geziler eklenebilir.",
+s4_h:"Kendi dilinizde destek",s4_p:"Seyahat öncesi, sırası ve sonrasında tek WhatsApp muhatabı.",
+h_eb:"Sağlık turizmi",h_h:"Tedavi seyahatleri, baştan sona organize",h_p:"Lisanslı klinik ve hastanelerle çalışıyoruz. Klinik, otel ve transfer tek planda.",
+h1_h:"Saç ekimi",h1_p:"Klinik ziyareti, otel konaklaması ve tedavi günlerindeki tüm transferler.",
+h2_h:"Diş tedavisi",h2_p:"İmplant, lamine ve kaplama; otel ve randevu takvimi sizin için ayarlanır.",
+h3_h:"Estetik işlemler",h3_p:"Anlaşmalı hastanelerde muayene ve işlem, iyileşme konaklaması ve transferler.",
+h_note:"Tıbbi kararları ve tedavi planını lisanslı hekim verir. Holiday in Turkey seyahat, konaklama ve koordinasyonu üstlenir.",
+w_eb:"Nasıl çalışır",w_h:"İlk mesajdan dönüş uçuşuna",
+w1_h:"Talep gönderin",w1_p:"Formu doldurun ya da WhatsApp'tan tarih ve ilgi alanlarınızı yazın.",
+w2_h:"Planınızı alın",w2_p:"Gün gün plan ve net paket fiyatıyla dönüş yapıyoruz.",
+w3_h:"Onaylayın",w3_p:"Planı onaylayın ve kaporayı güvenle ödeyin.",
+w4_h:"Seyahat edin",w4_p:"Sizi havalimanında karşılıyoruz. Koordinatörünüz WhatsApp'ta yanınızda.",
+k_eb:"İletişim",k_h:"Seyahatinizi anlatın",k_p:"Genellikle birkaç saat içinde dönüş yapıyoruz.",
+fm_name:"Ad soyad",fm_country:"Ülke",fm_phone:"Telefon / WhatsApp",fm_people:"Kişi sayısı",fm_type:"İlgi alanı",fm_date:"Seyahat ayı",fm_msg:"Mesaj",fm_send:"Talebi gönder",
+o1:"Kültür ve şehir turları",o2:"Paket tatil / transfer",o3:"Sağlık seyahati",
+fm_err:"Lütfen adınızı ve telefon numaranızı yazın.",
+lic:"TÜRSAB belge no: XXXXX",foot:"Gaziantep · Türkiye"}
+};
+/* WhatsApp numarası: ülke kodu ile, boşluksuz ve + olmadan (örnek: 905321234567) */
+const WA_NUMBER="905515760027";
+const waUrl=t=>"https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t);
+let cur="en";
+function setLang(l){
+  cur=T[l]?l:"en";
+  const d=T[cur];
+  document.documentElement.lang=cur;
+  document.documentElement.dir=cur==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-i]").forEach(el=>{const k=el.dataset.i; if(d[k]!=null) el.textContent=d[k];});
+  document.querySelectorAll(".langs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===cur?"true":"false"));
+  document.querySelectorAll(".wa-link,#waFloat").forEach(a=>a.href=waUrl(d.wa_hello));
+  try{localStorage.setItem("ht_lang",cur)}catch(e){}
+}
+document.querySelectorAll(".langs button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.l)));
+let saved=null; try{saved=localStorage.getItem("ht_lang")}catch(e){}
+setLang(saved||"en");
+document.getElementById("req").addEventListener("submit",e=>{
+  e.preventDefault();
+  const ok=document.getElementById("ok");
+  const send=document.getElementById("waSend");
+  const v=id=>document.getElementById(id).value.trim();
+  const valid=v("f_name")&&v("f_phone");
+  ok.textContent=valid?T[cur].fm_ok:T[cur].fm_err;
+  ok.hidden=false;
+  if(!valid){send.hidden=true;return;}
+  const d=T[cur];
+  const sel=document.getElementById("f_type");
+  const lines=[d.wa_hello,"",
+    d.fm_name+": "+v("f_name"),
+    d.fm_country+": "+v("f_country"),
+    d.fm_phone+": "+v("f_phone"),
+    d.fm_people+": "+v("f_people"),
+    d.fm_type+": "+sel.options[sel.selectedIndex].text,
+    d.fm_date+": "+v("f_date"),
+    d.fm_msg+": "+v("f_msg")].filter(x=>!/: $/.test(x));
+  send.href=waUrl(lines.join("\n"));
+  send.hidden=false;
+  try{window.open(send.href,"_blank","noopener")}catch(err){}
+});
+</script>
+
+</body>
+</html>
